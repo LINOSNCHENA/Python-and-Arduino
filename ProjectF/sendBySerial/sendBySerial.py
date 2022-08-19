@@ -14,14 +14,17 @@ if __name__ == '__main__':
     ser.write(b'1')
     print("1-recieving message from arduino ...")
     data = ser.readline()
+    print(data)
+    print(type(data))
+    print(len(data))
     if (data != ""):
         print("1-Arduino says: %s" % data)
     else:
         print("1-Arduino doesnt respond")
     print('\n --------------------------|SECOND|--------------------------')
     time.sleep(4)
-    print("2-sending message to turn on PIN 13 ...")
-    ser.write(0)
+    print("2-sending message to turn on PIN 12 ...")
+    ser.write(b'L')
     print("2-recieving message from arduino ...")
     data = ser.readline()
     if (data != ""):
@@ -30,10 +33,10 @@ if __name__ == '__main__':
         print("2-Arduino doesnt respond")
     print('\n --------------------------|THIRD|--------------------------')
     time.sleep(4)
-    print("3-sending message to turn on PIN 13 ...")
-    ser.write(b'0')
+    print("3-sending message to turn on PIN 11 ...")
+    ser.write(b'H')
     print("3-recieving message from arduino ...")
-    data = ser.readline()
+    data = ser.read(100)
     if (data != ""):
         print("3-Arduino says: %s" % data)
     else:

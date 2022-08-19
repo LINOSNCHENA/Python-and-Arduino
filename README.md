@@ -25,14 +25,14 @@ python ThreeC1.py
 python xModelA2.py
 python eModel1.py
 
-E | ================
-python Sensor1Data.py
-python Sensor2Data.py
+F | ================
+python sendCentral.py
+python sendBySerial.py
+python buttonOnOff.py
 
 H | ================
+python buttonOnOff.py
 python sendBySerial.py
-python ButtonOnOff.py
-python Sensor2Data.py
 
 
 ```

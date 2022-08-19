@@ -36,13 +36,11 @@
 """
 
 
-import logging
 import asyncio
-import platform
-import ast
+import sys
+import time
 
 from bleak import BleakClient
-from bleak import BleakScanner
 from bleak import discover
 
 # These values have been randomly generated - they must match between the Central and Peripheral devices
@@ -51,6 +49,8 @@ from bleak import discover
 RED_LED_UUID = '13012F01-F8C3-4F4A-A8F4-15CD926DA146'
 GREEN_LED_UUID = '13012F02-F8C3-4F4A-A8F4-15CD926DA146'
 BLUE_LED_UUID = '13012F03-F8C3-4F4A-A8F4-15CD926DA146'
+
+seconds = time.time()
 
 on_value = bytearray([0x01])
 off_value = bytearray([0x00])
@@ -68,50 +68,59 @@ def getValue(on):
 
 async def setColor(client):
     global RED, GREEN, BLUE
-    val = input('Enter rgb to toggle red, green and blue LEDs :')
+    val = input('Enter rgb to toggle red, green and blue LEDs or (X for exit):')
     print(val)
-
-    if ('r' in val):
+    if ('r' in val) or ('R' in val):
         RED = not RED
         await client.write_gatt_char(RED_LED_UUID, getValue(RED))
-    if ('g'in val):
+    if ('g'in val) or ('G' in val):
         GREEN = not GREEN
         await client.write_gatt_char(GREEN_LED_UUID, getValue(GREEN))
-    if ('b' in val):
+
+    if ('b' in val) or ('B' in val):
         BLUE = not BLUE
         await client.write_gatt_char(BLUE_LED_UUID, getValue(BLUE))
-    
+    if ('x' in val) or ('X' in val):
+        print ('Exiting program ................')
+        sys.exit(0) 
 
 async def run():
     global RED, GREEN, BLUE
+    print('\n =================|Searching_for_Devices|======================',time.time(),'\n')
 
-    print('ProtoStax Arduino Nano BLE LED Peripheral Central Service')
-    print('Looking for Arduino Nano 33 BLE Sense Peripheral Device...')
+    print('1 - ProtoStax Arduino Nano BLE LED Peripheral Central Service')
+    print('2 - Looking for Arduino Nano 33 BLE Sense Peripheral Device...')
 
     found = False
     devices = await discover()
-    for d in devices:       
-        if 'Arduino Nano 33 BLE Sense'in d.name:
-            print(d)
-            print(d.name)
-            print('=============================================')
-            print('Found Arduino Nano 33 BLE Sense Peripheral')
+    
+    print("Seconds since epoch =", seconds)	
+   
+    for d in devices:   
+        print('\n =================|Count_Devices-1|============================',time.time(),'\n') 
+        print('TotalDevices = > ',len(devices))
+        z=0
+        for x in devices:
+            z=z+1
+            print(z,'|',x.name,"|",x)
+
+        print('\n=================|Count_Devices-2|============================',time.time(),'\n') 
+        if (d.name is not None) and ('Arduino Nano 33 BLE Sense'in d.name):
+
+            print('Found Arduino Nano 33 BLE Sense Peripheral \n')
             found = True
             async with BleakClient(d.address) as client:
                 print(f'Connected to {d.address}')
                 print(RED_LED_UUID)
-                print('=====================second================')
                 val = await client.read_gatt_char(RED_LED_UUID)
-
                 print(val)
-                print('=====================Thirdnd================')
+                print('\n =====================|Options|======================',time.time(),'\n')
                 if (val == on_value):
                     print ('RED ON')
                     RED = True
                 else:
                     print ('RED OFF')
                     RED = False
-
                 val = await client.read_gatt_char(GREEN_LED_UUID)
                 if (val == on_value):
                     print ('GREEN ON')
@@ -126,9 +135,7 @@ async def run():
                     BLUE = True
                 else:
                     print ('BLUE OFF')
-                    BLUE = False                    
-
-
+                    BLUE = False   
                 while True:
                     await setColor(client)
 
