@@ -43,4 +43,15 @@ print("======================|Successfully_Completed_Data_Collection|===========
    # save dataset to file for later use
 data.to_csv('imu.csv', index=False)
 print(data.describe())
-data.plot.features_pairplot(n=300)
+# importing packages
+import seaborn
+import matplotlib.pyplot as plt
+
+# loading dataset using seaborn
+df = seaborn.load_dataset('tips')
+print(df.head(3))
+print(data.head(3))
+
+# pairplot with hue sex
+seaborn.pairplot(df, hue ='size')
+plt.show()

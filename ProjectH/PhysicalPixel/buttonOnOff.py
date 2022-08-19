@@ -1,5 +1,6 @@
 # arduino_LED_user.py
 
+from platform import python_branch
 import serial
 import time
 
@@ -29,5 +30,8 @@ def led_on_off():
         led_on_off()
 
 time.sleep(2) # wait for the serial connection to initialize
-
 led_on_off()
+
+# ACTIONS
+# 1-print on python_branch
+# 2-send to Arduino

@@ -1,3 +1,4 @@
+
 // first make "pairing" with HC-06 devise
 // view devises list by running 'ls /dev/tty.* in terminal, you can see /dev/tty.HC-06-DevB on the list
 // then go to arduino editor, and choose your devise bluetooth under the 'Tools > Serial port' menu
@@ -18,11 +19,11 @@ void loop() {
     switch(inChar) {
       case '1':
         digitalWrite(13, HIGH);
-        Serial.print("pin 13 was turn on");
+        Serial.print("pin 13 was turn on|Ardiono-13");
       break;
       case '0':
         digitalWrite(13, LOW);
-        Serial.print("pin 13 was turn off");
+        Serial.print("pin 13 was turn off| Arduino-13");
       break;
     }
   }

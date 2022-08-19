@@ -25,6 +25,16 @@ python ThreeC1.py
 python xModelA2.py
 python eModel1.py
 
+E | ================
+python Sensor1Data.py
+python Sensor2Data.py
+
+H | ================
+python sendBySerial.py
+python ButtonOnOff.py
+python Sensor2Data.py
+
+
 ```
 ===================================================================
 

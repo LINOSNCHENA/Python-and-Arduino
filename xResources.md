@@ -33,17 +33,12 @@
 3. https://github.com/NathanielFelleke/TinyML-Fall-Detection
 4. https://www.hackster.io/vishwasnavada/jeeva-ai-based-smart-assist-for-elderly-a4f2ec
 5. https://www.tensorflow.org/guide/migrate/tflite
+6. https://www.digikey.cz/en/maker/projects/intro-to-tinyml-part-1-training-a-model-for-arduino-in-tensorflow/8f1fc8c0b83d417ab521c48864d2a8ec
 
-## Project-[B]
-https://www.digikey.cz/en/maker/projects/intro-to-tinyml-part-1-training-a-model-for-arduino-in-tensorflow/8f1fc8c0b83d417ab521c48864d2a8ec
-
-## Project -Controller
 ## Project -Detection
 https://eloquentarduino.com/courses/eloquent-tinyml-vol-1/continous-motion-classification-with-eloquent-tinyml/
 https://github.com/protostax/ProtoStax_Arduino_Nano_BLE_RGBLED_Service
-https://github.com/armsp/nano-33-ble-gen
-https://armsp.github.io/nano-33-ble-gen/python_bluetooth.html
-https://pythonforundergradengineers.com/python-arduino-LED.html#upload-the-arduino-example-sketch-blinkino-onto-the-arduino-confirm-the-arduino-and-led-blinks
+https://pythonforundergradengineers.com/python-arduino-LED.
 
 ==================================================================================
 
