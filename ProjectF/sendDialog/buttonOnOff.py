@@ -19,7 +19,7 @@ def led_on_off():
         s = ser.read(100)
         print(s)
         led_on_off()
-    elif user_input =="quit" or user_input == "q":
+    elif user_input =="X" or user_input == "x" or user_input == "quit":
         print("Program Exiting")
         time.sleep(0.1)
         ser.write(b'L')

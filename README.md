@@ -27,8 +27,8 @@ python eModel1.py
 
 F | ================
 python sendCentral.py
-python sendBySerial.py
 python buttonOnOff.py
+python sendExit.py
 
 H | ================
 python buttonOnOff.py

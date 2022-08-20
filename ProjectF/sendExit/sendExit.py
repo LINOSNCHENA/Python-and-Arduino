@@ -15,8 +15,8 @@ if __name__ == '__main__':
     print("1-recieving message from arduino ...")
     data = ser.readline()
     print(data)
-    print(type(data))
-    print(len(data))
+    # print(type(data))
+    # print(len(data))
     if (data != ""):
         print("1-Arduino says: %s" % data)
     else:
@@ -27,6 +27,7 @@ if __name__ == '__main__':
     ser.write(b'L')
     print("2-recieving message from arduino ...")
     data = ser.readline()
+    print(data)
     if (data != ""):
         print("2-Arduino says: %s" % data)
     else:
@@ -37,6 +38,8 @@ if __name__ == '__main__':
     ser.write(b'H')
     print("3-recieving message from arduino ...")
     data = ser.read(100)
+    data = ser.readline()
+    print(data)
     if (data != ""):
         print("3-Arduino says: %s" % data)
     else:
