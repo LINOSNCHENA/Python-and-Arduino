@@ -6,27 +6,21 @@
 */
 
 #include <ArduinoBLE.h>
-
- // BLE Battery Service
+// BLE Battery Service
 BLEService batteryService("19B10000-E8F2-537E-4F6C-D104768A1214");
-
 // BLE Battery Level Characteristic
 BLEUnsignedCharCharacteristic batteryLevelChar("2A19",  // standard 16-bit characteristic UUID
     BLERead | BLENotify); // remote clients will be able to get notifications if this characteristic changes
-
 int oldBatteryLevel = 0;  // last battery level reading from analog input
 long previousMillis = 0;  // last time the battery level was checked, in ms
 
 void setup() {
   Serial.begin(9600);    // initialize serial communication
   while (!Serial);
-
   pinMode(LED_BUILTIN, OUTPUT); // initialize the built-in LED pin to indicate when a central is connected
-
   // begin initialization
   if (!BLE.begin()) {
     Serial.println("starting BLE failed!");
-
     while (1);
   }
 
