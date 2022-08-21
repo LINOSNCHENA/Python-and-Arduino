@@ -4,7 +4,8 @@ import pandas as pd
 import seaborn
 import serial
 import csv
-
+plt.rcParams["figure.figsize"] = [18.50, 5.50]
+plt.rcParams["figure.autolayout"] = True
 fileName1 = "_IMU_One_Spaced.csv"
 fileName2 = "_IMU_ZeroSpaced.csv"
 sizingFont = 15
@@ -103,8 +104,8 @@ ax1.set_fontsize(sizingFont)
 plt.suptitle(lablel5)
 plt.suptitle('DATASET_Arduino_Collected_Python2 | # Headers= '+str(c) + ' / '+str(c2) +
           ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
-# plt.axis('tight')
-# plt.tight_layout()
+plt.axis('tight')
+plt.tight_layout()
 plt.savefig('../uxviews/ProjectA/ProjectAX2.png')
 plt.show()
 print(datax.head(2))
