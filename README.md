@@ -8,6 +8,7 @@ NVIDIA setup file!
 pip install everywhereml>=0.0.3
 conda install pyserial
 pip install bleak
+conda install -c auto adafruit_bbio
 ```
 
 ## Program operation(Using Conda-Python)
@@ -20,20 +21,18 @@ python MakeData.py
 
 bash model.sh
 
-python xSineB1.py
+B | ================
+python SensorBData.py
 python ThreeC1.py
-python xModelA2.py
-python eModel1.py
+
+D | ================
+python xModelD1.py
+python xSineE1.py
 
 F | ================
 python sendCentral.py
 python buttonOnOff.py
 python sendExit.py
-
-H | ================
-python buttonOnOff.py
-python sendBySerial.py
-
 
 ```
 ===================================================================
