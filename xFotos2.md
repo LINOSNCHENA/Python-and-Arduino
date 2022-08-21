@@ -8,6 +8,8 @@
 ![ Muntu #04 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/Projects/ProjectB04.png)
 ![ Muntu #05 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/Projects/ProjectB05.png)
 ![ Muntu #06 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/Projects/ProjectB06.png)
+![ Muntu #07 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/Projects/ProjectB07.png)
+![ Muntu #08 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/Projects/ProjectB08.png)
 
 ## Project (C) - TASKS
 

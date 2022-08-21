@@ -21,6 +21,8 @@ test_ratio = 0.2    # Percentage of samples that should be held for test set
 tflite_model_name = 'z1_sine_model'  # Will be given .tflite suffix
 c_model_name = 'z1_sine_model'       # Will be given .h suffix
 epochX = 500
+plotName = '- Android And Python -'
+fontSized = 15
 
 print("================================|Make_Dataset_Line_33|=======================1=========")
 # Generate some random samples
@@ -30,12 +32,18 @@ x_values = np.random.uniform(low=0, high=(2 * math.pi), size=nsamples)
 plt.plot(x_values)
 print(x_values)
 print(x_values.shape)
+plt.title('01-normal sinewave',fontsize=fontSized)
+plt.axis('tight')
+plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB01.png')
 plt.show()
 
 # Create a noisy sinewave with these values
 y_values = np.sin(x_values) + (0.1 * np.random.randn(x_values.shape[0]))
 plt.plot(x_values, y_values, '.')
+plt.title('02-noisy sinewave')
+plt.axis('tight')
+plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB02.png')
 plt.show()
 
@@ -54,8 +62,10 @@ plt.clf()
 plt.plot(x_train, y_train, 'b.', label="Train")
 plt.plot(x_test, y_test, 'r.', label="Test")
 plt.plot(x_val, y_val, 'y.', label="Validate")
-plt.title('1-Training,Testing,and validation data')
+plt.title('03-Training,Testing,and validation data',fontsize=fontSized)
 plt.legend()
+plt.axis('tight')
+plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB03.png')
 plt.show()
 
@@ -89,8 +99,10 @@ epochs = range(1, len(loss) + 1)
 plt.clf()
 plt.plot(epochs, loss, 'bo', label='Training loss')
 plt.plot(epochs, val_loss, 'r', label='Validation loss')
-plt.title('2 - Training and validation loss')
+plt.title('04 - Training and validation loss',fontsize=fontSized)
 plt.legend()
+plt.axis('tight')
+plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB04.png')
 plt.show()
 
@@ -99,10 +111,12 @@ plt.show()
 predictions = model.predict(x_test)
 print("================================|Prediction_Plotting_Line_33|=======================4============")
 plt.clf()
-plt.title("3 - Comparison of predictions to actual values")
+plt.title("05 - Comparison of predictions to actual values",fontsize=fontSized)
 plt.plot(x_test, y_test, 'b.', label='Actual')
 plt.plot(x_test, predictions, 'r.', label='Prediction')
 plt.legend()
+plt.axis('tight')
+plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB05.png')
 plt.show()
 
@@ -152,8 +166,7 @@ with open(c_model_name + '.h', 'w') as file:
 
 print("===================================|EVALUATION-REQUIRED|====================================11===============")
 print(history.history.keys())
-plotName = '- Android And Python -'
-fontSized = 15
+
 allSizes = (history.history['accuracy'])
 arrLengthX = len(allSizes)
 
@@ -189,9 +202,11 @@ ax = plt.axes()
 ax.set_facecolor("beige")
 plt.plot(history.history['accuracy'], color="red")
 plt.plot(history.history['val_accuracy'], color="blue")
-plt.title('08 '+str(plotName)+' | Model-Accuracy', fontsize=fontSized)
+plt.title('06 '+str(plotName)+' | Model-Accuracy', fontsize=fontSized)
 plt.ylabel('Accuracy ', fontsize=fontSized)
 plt.xlabel('epoch', fontsize=fontSized)
+plt.axis('tight')
+plt.tight_layout()
 plt.legend(['training  : %'+str(accArray2),
            'validation : %'+str(accArray22)], loc='best', fontsize=fontSized,)
 plt.savefig('../uxviews/Projects/ProjectB06.png')
@@ -203,10 +218,12 @@ ax = plt.axes()
 ax.set_facecolor("beige")
 plt.plot(history.history['loss'], color="fuchsia")
 plt.plot(history.history['val_loss'], color="blue")
-plt.title('09 '+str(plotName)+' | Model-Loss', fontsize=fontSized)
+plt.title('07 '+str(plotName)+' | Model-Loss', fontsize=fontSized)
 plt.ylabel('Loss values', fontsize=fontSized)
 plt.xlabel('epoch', fontsize=fontSized)
 plt.grid(True)
+plt.axis('tight')
+plt.tight_layout()
 plt.legend(['training  : %'+str(accArray2),
            'validation : %'+str(accArray22)], loc='best', fontsize=fontSized,)
 plt.savefig('../uxviews/Projects/ProjectB07.png')
@@ -220,9 +237,11 @@ ax = plt.axes()
 ax.set_facecolor("beige")
 plt.plot(history.history['mae'], color="blue")
 plt.plot(history.history['val_mae'], color="fuchsia")
-plt.title('10 '+str(plotName)+' | Model-Error', fontsize=fontSized)
+plt.title('8 '+str(plotName)+' | Model-Error', fontsize=fontSized)
 plt.ylabel('Error values', fontsize=fontSized)
 plt.xlabel('epoch', fontsize=fontSized)
+plt.axis('tight')
+plt.tight_layout()
 plt.legend(['training  : %'+str(accArray3),
            'validation : %'+str(accArray32)], loc='best', fontsize=fontSized,)
 plt.savefig('../uxviews/Projects/ProjectB08.png')
