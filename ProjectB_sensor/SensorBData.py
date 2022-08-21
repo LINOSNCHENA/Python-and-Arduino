@@ -99,9 +99,31 @@ ax1.set_fontsize(sizingFont)
 plt.suptitle(lablel5)
 plt.suptitle('Arduino_Collected_Python2 | # Headers= '+str(c) + ' / '+str(c2) +
           ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
-# plt.axis('tight')
-# plt.tight_layout()
 plt.savefig('../uxviews/ProjectA/ProjectAX2.png')
+plt.show()
+print(datax.head(92))
+
+print("====================|Successfully_Ploting_Collected_Data|===============4=====")
+df4 = datax.iloc[0:211111111114:, -15:]  # 22-Records, last-15X headers
+l = len(df4)
+c = len(data.columns)
+l2 = len(data)
+c2 = len(data.columns)
+
+fig, ax = plt.subplots()
+fig.patch.set_visible(False)
+ax.axis('off')
+ax.axis('tight')
+ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
+               loc='center', colColours=kalas, fontsize=sizingFont)
+ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
+               loc='center', fontsize=sizingFont)
+ax1.auto_set_font_size(False)
+ax1.set_fontsize(sizingFont)
+plt.suptitle(lablel5)
+plt.suptitle('Arduino_Collected_Python3 | # Headers= '+str(c) + ' / '+str(c2) +
+          ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
+plt.savefig('../uxviews/ProjectA/ProjectAX3.png')
 plt.show()
 print(datax.head(92))
 

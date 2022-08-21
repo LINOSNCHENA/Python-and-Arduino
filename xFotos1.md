@@ -14,6 +14,7 @@
 
 ![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectAX1.png)
 ![ Muntu #02 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectAX2.png)
+![ Muntu #03 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectAX3.png)
 
 ## 3-Screen shots from output-PROJECT-A1(11)   
 
