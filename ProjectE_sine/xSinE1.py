@@ -15,24 +15,22 @@ print('TensorFlow ' + tf.__version__)
 print('Keras ' + tf.keras.__version__)
 
 # Settings
+tflite_model_name = 'z1_sine_model'  # Will be given .tflite suffix
+c_model_name = 'z1_sine_model'       # Will be given .h suffix
+plotName = '- Android And Python -'
 nsamples = 1000     # Number of samples to use as a dataset
 val_ratio = 0.2     # Percentage of samples that should be held for validation set
 test_ratio = 0.2    # Percentage of samples that should be held for test set
-tflite_model_name = 'z1_sine_model'  # Will be given .tflite suffix
-c_model_name = 'z1_sine_model'       # Will be given .h suffix
-epochX = 500
-plotName = '- Android And Python -'
 fontSized = 15
+epochX = 500
 
-print("================================|Make_Dataset_Line_33|=======================1=========")
+print("===========================|Make_Dataset_Line_33|===========================01==========")
 # Generate some random samples
 np.random.seed(1234)
 plt.clf()
 x_values = np.random.uniform(low=0, high=(2 * math.pi), size=nsamples)
 plt.plot(x_values)
-print(x_values)
-print(x_values.shape)
-plt.title('01-normal sinewave',fontsize=fontSized)
+plt.title('01 - Normal Sinewave',fontsize=fontSized)
 plt.axis('tight')
 plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB01.png')
@@ -41,7 +39,7 @@ plt.show()
 # Create a noisy sinewave with these values
 y_values = np.sin(x_values) + (0.1 * np.random.randn(x_values.shape[0]))
 plt.plot(x_values, y_values, '.')
-plt.title('02-noisy sinewave')
+plt.title('02 - Noisy Sinewave',fontsize=fontSized)
 plt.axis('tight')
 plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB02.png')
@@ -56,13 +54,13 @@ y_val, y_test, y_train = np.split(y_values, [val_split, test_split])
 # Check that our splits add up correctly
 assert(x_train.size + x_val.size + x_test.size) == nsamples
 
-print("================================|Plot_Training_Data_Line_33|========================2=========")
+print("============================|Plot_Training_Data_Line_33|========================02=========")
 # Plot the data in each partition in different colors'
 plt.clf()
 plt.plot(x_train, y_train, 'b.', label="Train")
 plt.plot(x_test, y_test, 'r.', label="Test")
 plt.plot(x_val, y_val, 'y.', label="Validate")
-plt.title('03-Training,Testing,and validation data',fontsize=fontSized)
+plt.title('03 - Training,Testing,and validation data',fontsize=fontSized)
 plt.legend()
 plt.axis('tight')
 plt.tight_layout()
@@ -90,7 +88,7 @@ history = model.fit(x_train,
                     validation_data=(x_val, y_val))
 
 
-print("================================|History_Plotting_Line_33|=======================3===========")
+print("=========================|History_Plotting_Line_33|=======================03===========")
 # Plot the training history
 loss = history.history['loss']
 val_loss = history.history['val_loss']
@@ -106,10 +104,9 @@ plt.tight_layout()
 plt.savefig('../uxviews/Projects/ProjectB04.png')
 plt.show()
 
-
+print("=======================|Prediction_Plotting_Line_33|======================04============")
 # Plot predictions against actual values
 predictions = model.predict(x_test)
-print("================================|Prediction_Plotting_Line_33|=======================4============")
 plt.clf()
 plt.title("05 - Comparison of predictions to actual values",fontsize=fontSized)
 plt.plot(x_test, y_test, 'b.', label='Actual')
@@ -123,10 +120,9 @@ plt.show()
 # Convert Keras model to a tflite model
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
 converter.optimizations = [tf.lite.Optimize.DEFAULT]  
-print("================================|Model_Create_Line_33|=================66=============5B===========")
+print("================================|Model_Create_Line_33|====================5B===========")
 tflite_model = converter.convert()
-print("================================|Model_Create_Line_33|===============Error-Above=======5B===========")
-
+print("================================|Model_Create_Line_33|====================5B===========")
 open(tflite_model_name + '.tflite', 'wb').write(tflite_model)
 
 
@@ -158,15 +154,14 @@ def hex_to_c_array(hex_data, var_name):
     return c_str
 
 
-print("================================|Model_Plot_Line_33|=====================6=============")
+print("================================|Model_Plot_Line_33|======================06=============")
 # Write TFLite model to a C source (or header) file
 with open(c_model_name + '.h', 'w') as file:
     file.write(hex_to_c_array(tflite_model, c_model_name))
 
 
-print("===================================|EVALUATION-REQUIRED|====================================11===============")
+print("===================================|EVALUATION-REQUIRED|===================07=============")
 print(history.history.keys())
-
 allSizes = (history.history['accuracy'])
 arrLengthX = len(allSizes)
 
@@ -186,8 +181,7 @@ accArray32 = (history.history['val_loss'])
 accArray32 = round(100*accArray32[arrLengthX-1], 4)
 print(history.history)
 
-print("\n ===================================|First_Plot|=======================12===============")
-
+print("\n ===================================|First_Plot|=========================08===============")
 print(history.history.keys())
 print(accArray1)
 print(accArray12)
@@ -212,7 +206,8 @@ plt.legend(['training  : %'+str(accArray2),
 plt.savefig('../uxviews/Projects/ProjectB06.png')
 plt.show()
 
-print("\n ===================================|Second_Plot|======================13===============")
+print("\n ===================================|Second_Plot|========================09===============")
+
 plt.figure(figsize=(12, 8))
 ax = plt.axes()
 ax.set_facecolor("beige")
@@ -230,7 +225,7 @@ plt.savefig('../uxviews/Projects/ProjectB07.png')
 plt.show()
 print(history.history['acc'])
 
-print("\n ===================================|Third_Plot|=======================14===============")
+print("\n ===================================|Third_Plot|==========================10===============")
 
 plt.figure(figsize=(12, 8))
 ax = plt.axes()
@@ -248,4 +243,4 @@ plt.savefig('../uxviews/Projects/ProjectB08.png')
 plt.show()
 print(history.history['accuracy'])
 
-print("================================|xSineOne1_Successfuly_Completed|===================7=============")
+print("================================|xSineOne1_Successfuly_Completed|===================11=============")
