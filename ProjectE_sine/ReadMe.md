@@ -12,6 +12,7 @@ python xsort.py
 1. Cosc Plot - No Accuracy
 2. Accuracy Matrics
 3. Malaria Accuracy
+4. Accuracy is zero
 
 ## Sources
 ============================================================

@@ -1,10 +1,9 @@
-# COSINE AND SINE
-from calendar import EPOCH
 import tensorflow as tf
-import matplotlib.pyplot as plt
-from tensorflow.keras import layers
 import numpy as np
+import matplotlib.pyplot as plt
 import math
+from tensorflow.keras import layers
+
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 plt.rcParams["figure.figsize"] = (12, 8)
@@ -14,24 +13,27 @@ print('TensorFlow ' + tf.__version__)
 print('Keras ' + tf.keras.__version__)
 
 # Settings
-nsamples = 1102     # Number of samples to use as a dataset
-val_ratio = 0.12     # Percentage of samples that should be held for validation set
-test_ratio = 0.12    # Percentage of samples that should be held for test set
-tflite_model_name = 'zed_sine_model'  # Will be given .tflite suffix
-c_model_name = 'sine_model'       # Will be given .h suffix
-epochX = 201
+nsamples = 1000     # Number of samples to use as a dataset
+val_ratio = 0.2     # Percentage of samples that should be held for validation set
+test_ratio = 0.2    # Percentage of samples that should be held for test set
+tflite_model_name = 'z2sine_model'  # Will be given .tflite suffix
+c_model_name = 'z2sine_model'       # Will be given .h suffix
 
-print("================================|Make_Dataset_Line_33|=======================1=========")
+
 # Generate some random samples
 np.random.seed(1234)
+plt.clf()
 x_values = np.random.uniform(low=0, high=(2 * math.pi), size=nsamples)
 plt.plot(x_values)
-print(x_values)
-print(x_values.shape)
+plt.savefig('../uxviews/Projects/ProjectB01b.png')
+plt.show()
+
 
 # Create a noisy sinewave with these values
 y_values = np.sin(x_values) + (0.1 * np.random.randn(x_values.shape[0]))
 plt.plot(x_values, y_values, '.')
+plt.savefig('../uxviews/Projects/ProjectB02b.png')
+plt.show()
 
 # Plit the dataset into training, validation, and test sets
 val_split = int(val_ratio * nsamples)
@@ -42,15 +44,14 @@ y_val, y_test, y_train = np.split(y_values, [val_split, test_split])
 # Check that our splits add up correctly
 assert(x_train.size + x_val.size + x_test.size) == nsamples
 
-print("================================|Plot_Training_Data_Line_33|========================2=========")
-# Plot the data in each partition in different colors'
+# Plot the data in each partition in different colors:
 plt.plot(x_train, y_train, 'b.', label="Train")
 plt.plot(x_test, y_test, 'r.', label="Test")
 plt.plot(x_val, y_val, 'y.', label="Validate")
-plt.title('1-Training,Testing,and validation data')
 plt.legend()
-plt.savefig('../uxviews/Projects/ProjectB01.png')
+plt.savefig('../uxviews/Projects/ProjectB03b.png')
 plt.show()
+
 
 # Create a model
 model = tf.keras.Sequential()
@@ -61,50 +62,49 @@ model.add(layers.Dense(1))
 model.summary()
 
 # Add optimizer, loss function, and metrics to model and compile it
-# model.compile(optimizer='rmsprop', loss='mae', metrics=['mae','acc','accuracy'])
+model.compile(optimizer='rmsprop', loss='mae', metrics=['mae','acc','accuracy'])
+
 # Train model
-model.compile(optimizer='adam', loss='binary_crossentropy',
-              metrics=['mae', 'acc', tf.keras.metrics.Accuracy()])
-# Fit the model
 history = model.fit(x_train,
                     y_train,
-                    epochs=epochX,
-                    batch_size=EPOCH, verbose=False,
+                    epochs=500,
+                    batch_size=100,
                     validation_data=(x_val, y_val))
 
 
-print("================================|History_Plotting_Line_33|=======================3===========")
 # Plot the training history
 loss = history.history['loss']
 val_loss = history.history['val_loss']
+
 epochs = range(1, len(loss) + 1)
+plt.clf()
 plt.plot(epochs, loss, 'bo', label='Training loss')
 plt.plot(epochs, val_loss, 'g', label='Validation loss')
-plt.title('2 - Training and validation loss')
+plt.title('Training and validation loss')
 plt.legend()
-plt.savefig('../uxviews/Projects/ProjectB02.png')
+plt.savefig('../uxviews/Projects/ProjectB04b.png')
 plt.show()
 
 
 # Plot predictions against actual values
 predictions = model.predict(x_test)
-print("================================|Prediction_Plotting_Line_33|=======================4============")
+
 plt.clf()
-plt.title("3 - Comparison of predictions to actual values")
+plt.title("Comparison of predictions to actual values")
 plt.plot(x_test, y_test, 'b.', label='Actual')
 plt.plot(x_test, predictions, 'r.', label='Prediction')
 plt.legend()
-plt.savefig('../uxviews/Projects/ProjectB03.png')
+plt.savefig('../uxviews/Projects/ProjectB05b.png')
 plt.show()
+
 
 # Convert Keras model to a tflite model
 converter = tf.lite.TFLiteConverter.from_keras_model(model)
-converter.optimizations = [tf.lite.Optimize.DEFAULT]  # OPTIMIZE_FOR_SIZE]
-print("================================|Model_Create_Line_33|=================66=============5B===========")
+converter.optimizations = [tf.lite.Optimize.OPTIMIZE_FOR_SIZE]
 tflite_model = converter.convert()
-print("================================|Model_Create_Line_33|===============Error-Above=======5B===========")
 
 open(tflite_model_name + '.tflite', 'wb').write(tflite_model)
+
 
 
 # Function' Convert some hex value into an array for C programming
@@ -163,33 +163,32 @@ accArray3 = round(100*accArray3[arrLengthX-1], 4)
 accArray32 = (history.history['val_loss'])
 accArray32 = round(100*accArray32[arrLengthX-1], 4)
 print(history.history)
+
 print("\n ===================================|First_Plot|=======================12===============")
 print(history.history.keys())
 print(accArray1)
 print(accArray12)
-
 print(accArray2)
 print(accArray22)
-
 print(accArray3)
 print(accArray32)
 
 # Setting the figure fontSized and Frame
-plt.figure(figsize=(18, 10))
+plt.figure(figsize=(12, 8))
 ax = plt.axes()
 ax.set_facecolor("beige")
 plt.plot(history.history['accuracy'], color="blue")
-plt.plot(history.history['val_accuracy'], color="red")
+plt.plot(history.history['val_accuracy'], color="green")
 plt.title('08 '+str(plotName)+' | Model-Accuracy', fontsize=fontSized)
 plt.ylabel('Accuracy ', fontsize=fontSized)
 plt.xlabel('epoch', fontsize=fontSized)
 plt.legend(['training  : %'+str(accArray2),
            'validation : %'+str(accArray22)], loc='best', fontsize=fontSized,)
-plt.savefig('../uxviews/Projects/ProjectB04.png')
+plt.savefig('../uxviews/Projects/ProjectB06b.png')
 plt.show()
 
 print("\n ===================================|Second_Plot|======================13===============")
-plt.figure(figsize=(12, 10))
+plt.figure(figsize=(12, 8))
 ax = plt.axes()
 ax.set_facecolor("beige")
 plt.plot(history.history['loss'], color="fuchsia")
@@ -200,12 +199,13 @@ plt.xlabel('epoch', fontsize=fontSized)
 plt.grid(True)
 plt.legend(['training  : %'+str(accArray2),
            'validation : %'+str(accArray22)], loc='best', fontsize=fontSized,)
-plt.savefig('../uxviews/Projects/ProjectB05.png')
+plt.savefig('../uxviews/Projects/ProjectB07b.png')
 plt.show()
+print(history.history['acc'])
 
 print("\n ===================================|Third_Plot|=======================14===============")
 
-plt.figure(figsize=(18, 10))
+plt.figure(figsize=(12, 8))
 ax = plt.axes()
 ax.set_facecolor("beige")
 plt.plot(history.history['mae'], color="blue")
@@ -215,7 +215,8 @@ plt.ylabel('Error values', fontsize=fontSized)
 plt.xlabel('epoch', fontsize=fontSized)
 plt.legend(['training  : %'+str(accArray3),
            'validation : %'+str(accArray32)], loc='best', fontsize=fontSized,)
-plt.savefig('../uxviews/Projects/ProjectB06.png')
+plt.savefig('../uxviews/Projects/ProjectB08b.png')
 plt.show()
+print(history.history['accuracy'])
 
-print("================================|xPart1_Successfuly_Completed|===================7=============")
+print("================================|xSineTWO2_Successfuly_Completed|===================7=============")

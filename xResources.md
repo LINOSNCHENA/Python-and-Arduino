@@ -9,8 +9,8 @@
 
 ## Sources-Smart-2
 ==================================================================================
+1. https://github.com/NathanielFelleke/TinyML-Fall-Detection
 2. https://userweb.cs.txstate.edu/~hn12/data/SmartFallDataSet/
-3. https://github.com/NathanielFelleke/TinyML-Fall-Detection
 
 ## Sources-Gesture-3
 ==================================================================================
