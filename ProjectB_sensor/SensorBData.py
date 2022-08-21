@@ -75,7 +75,7 @@ ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
 ax1.auto_set_font_size(False)
 ax1.set_fontsize(sizingFont)
 plt.suptitle(lablel5)
-plt.suptitle('DATASET_1_SISFALL_Python1 | # Headers= '+str(c) + ' / '+str(c2) +
+plt.suptitle('DATASET_Arduino_Collected_Python1 | # Headers= '+str(c) + ' / '+str(c2) +
           ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
 plt.tight_layout()
 plt.axis('tight')
@@ -101,10 +101,10 @@ ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
 ax1.auto_set_font_size(False)
 ax1.set_fontsize(sizingFont)
 plt.suptitle(lablel5)
-plt.suptitle('DATASET_2_SISFALL_Python2 | # Headers= '+str(c) + ' / '+str(c2) +
+plt.suptitle('DATASET_Arduino_Collected_Python2 | # Headers= '+str(c) + ' / '+str(c2) +
           ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
-plt.axis('tight')
-plt.tight_layout()
+# plt.axis('tight')
+# plt.tight_layout()
 plt.savefig('../uxviews/ProjectA/ProjectAX2.png')
 plt.show()
 print(datax.head(2))
