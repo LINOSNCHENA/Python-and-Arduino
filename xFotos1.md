@@ -10,12 +10,12 @@
 ![ Muntu #06 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/TABLES//TA6.png)
 ![ Muntu #07 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/TABLES//TA7.png)
 
-## 3-Screen shots from output-PROJECT-B(02) 
+## 2-Screen shots from output-PROJECT-B(02) 
 
 ![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectA01.png)
 ![ Muntu #02 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectA02.png)
 
-## 2-Screen shots from output-PROJECT-A1(11)   
+## 3-Screen shots from output-PROJECT-A1(11)   
 
 ![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectA01.png)
 ![ Muntu #02 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectA02.png)
@@ -29,7 +29,7 @@
 ![ Muntu #10 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectA10.png)
 ![ Muntu #11 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectA11.png)
 
-## 3-Screen shots from output-PROJECT-C1(03) 
+## 4-Screen shots from output-PROJECT-C1(03) 
 
 ![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectB01.png)
 ![ Muntu #02 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectB02.png)
