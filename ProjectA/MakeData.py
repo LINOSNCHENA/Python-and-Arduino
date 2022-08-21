@@ -8,6 +8,7 @@ sizingFont = 15
 decimalsX = 5
 plt.rcParams["figure.figsize"] = [18.50, 5.50]
 plt.rcParams["figure.autolayout"] = True
+plt.rcParams['font.size'] = '18'
 
 lablel1 = "Data1-64 ADLs - BEFORE PROCESSING"
 lablel2 = "Data2-16 FALLS - BEFORE PROCESSING"
