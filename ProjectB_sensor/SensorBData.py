@@ -35,6 +35,7 @@ print("====================|Successfully_Readig_Arduino_Data|==================1
 print(rows)
 
 data = pd.read_csv(fileName1, delimiter=',')
+datax=data
 titles = ['Index1', 'Times', 'IMU_Task3',
           'ax1', 'ay2', 'az3', 'gx4', 'gy5', 'gz6']
 data.columns = titles
@@ -49,11 +50,6 @@ print(data.describe())
 # loading dataset using seaborn
 
 print("======================|Successfully_Added_Data_Seaborn|=================3======")
-df = seaborn.load_dataset('tips')
-print(df.head(3))
-print(data.head(3))
-datax=data
-
 df4 = data.iloc[0:22:, -15:]  # 22-Records, last-15X headers
 l = len(df4)
 c = len(data.columns)
@@ -76,16 +72,15 @@ ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
 ax1.auto_set_font_size(False)
 ax1.set_fontsize(sizingFont)
 plt.suptitle(lablel5)
-plt.suptitle('DATASET_Arduino_Collected_Python1 | # Headers= '+str(c) + ' / '+str(c2) +
+plt.suptitle('Arduino1_Collected_Python1 | # Headers= '+str(c) + ' / '+str(c2) +
           ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
-plt.tight_layout()
-plt.axis('tight')
+# plt.tight_layout()
+# plt.axis('tight')
 plt.savefig('../uxviews/ProjectA/ProjectAX1.png')
 plt.show()
-print(data.head(2))
-print(df4.head(2))
+print(data.head(92))
 print("====================|Successfully_Ploting_Collected_Data|===============4=====")
-df4 = datax.iloc[1:23:, -15:]  # 22-Records, last-15X headers
+df4 = datax.iloc[0:24:, -15:]  # 22-Records, last-15X headers
 l = len(df4)
 c = len(data.columns)
 l2 = len(data)
@@ -102,13 +97,13 @@ ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
 ax1.auto_set_font_size(False)
 ax1.set_fontsize(sizingFont)
 plt.suptitle(lablel5)
-plt.suptitle('DATASET_Arduino_Collected_Python2 | # Headers= '+str(c) + ' / '+str(c2) +
+plt.suptitle('Arduino_Collected_Python2 | # Headers= '+str(c) + ' / '+str(c2) +
           ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
-plt.axis('tight')
-plt.tight_layout()
+# plt.axis('tight')
+# plt.tight_layout()
 plt.savefig('../uxviews/ProjectA/ProjectAX2.png')
 plt.show()
-print(datax.head(2))
-print(df4.head(2))
+print(datax.head(92))
+
 print("====================|Successfully_Ploting_Collected_Data|===============5=====")
 
