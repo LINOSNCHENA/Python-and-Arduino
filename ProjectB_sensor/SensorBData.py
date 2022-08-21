@@ -7,7 +7,7 @@ import csv
 
 fileName1 = "_IMU_One_Spaced.csv"
 fileName2 = "_IMU_ZeroSpaced.csv"
-
+sizingFont = 15
 portName = "COM3"
 f = open(fileName1, "a+")
 writer = csv.writer(f, delimiter=',')
@@ -51,9 +51,63 @@ print("======================|Successfully_Added_Data_Seaborn|=================3
 df = seaborn.load_dataset('tips')
 print(df.head(3))
 print(data.head(3))
+datax=data
 
-# pairplot with hue sex
-seaborn.pairplot(df, hue='size')
-# plt.show()
+df4 = data.iloc[0:22:, -15:]  # 22-Records, last-15X headers
+l = len(df4)
+c = len(data.columns)
+l2 = len(data)
+c2 = len(data.columns)
+df4 = df4.round(9)
 
+lablel5 = "Dataset-for-experiments | 800 Records/Eight-Columns"
+kalas = ['palegreen', 'orange', 'yellow', 'gray', 'skyblue', 'green', 'palegreen', 'orange', 'yellow', 'gray', 'skyblue', 'green',
+         'palegreen', 'orange', 'yellow', 'gray', 'skyblue', 'green']
+
+fig, ax = plt.subplots()
+fig.patch.set_visible(False)
+ax.axis('off')
+ax.axis('tight')
+ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
+               loc='center', colColours=kalas, fontsize=sizingFont)
+ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
+               loc='center', fontsize=sizingFont)
+ax1.auto_set_font_size(False)
+ax1.set_fontsize(sizingFont)
+plt.suptitle(lablel5)
+plt.suptitle('DATASET_1_SISFALL_Python1 | # Headers= '+str(c) + ' / '+str(c2) +
+          ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
+plt.tight_layout()
+plt.axis('tight')
+plt.savefig('../uxviews/Projects/ProjectA01.png')
+plt.show()
+print(data.head(2))
+print(df4.head(2))
 print("====================|Successfully_Ploting_Collected_Data|===============4=====")
+df4 = datax.iloc[1:23:, -15:]  # 22-Records, last-15X headers
+l = len(df4)
+c = len(data.columns)
+l2 = len(data)
+c2 = len(data.columns)
+
+fig, ax = plt.subplots()
+fig.patch.set_visible(False)
+ax.axis('off')
+ax.axis('tight')
+ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
+               loc='center', colColours=kalas, fontsize=sizingFont)
+ax1 = ax.table(cellText=df4.values, colLabels=df4.columns,
+               loc='center', fontsize=sizingFont)
+ax1.auto_set_font_size(False)
+ax1.set_fontsize(sizingFont)
+plt.suptitle(lablel5)
+plt.suptitle('DATASET_2_SISFALL_Python2 | # Headers= '+str(c) + ' / '+str(c2) +
+          ': # Records='+str(l)+'/'+str(l2)+'|', fontsize=sizingFont, color='green', fontweight="bold")
+plt.axis('tight')
+plt.tight_layout()
+plt.savefig('../uxviews/Projects/ProjectA02.png')
+plt.show()
+print(datax.head(2))
+print(df4.head(2))
+print("====================|Successfully_Ploting_Collected_Data|===============5=====")
+
