@@ -38,7 +38,8 @@
 
 ## 5-Screen shots from ANIMATION-PROJECT-B(03) 
 
-![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/ProjectB_sensor/SmarHousePage1.png)
-![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/ProjectB_sensor/SmarHouseData.gif)
+![ Muntu #00 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/ProjectB_sensor/SmarHousePage1.png)
+![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/ProjectB_sensor/SmartHousePage1.png)
+![ Muntu #02 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/ProjectB_sensor/SmartHouseData.gif)
 
 # END
