@@ -6,6 +6,7 @@ import serial
 import csv
 plt.rcParams["figure.figsize"] = [18.50, 5.50]
 plt.rcParams["figure.autolayout"] = True
+
 fileName1 = "_IMU_One_Spaced.csv"
 fileName2 = "_IMU_ZeroSpaced.csv"
 sizingFont = 15

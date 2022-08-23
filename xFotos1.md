@@ -36,5 +36,9 @@
 ![ Muntu #02 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectB02.png)
 ![ Muntu #03 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/uxviews/ProjectA/ProjectB03.png)
 
+## 5-Screen shots from ANIMATION-PROJECT-B(03) 
+
+![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/ProjectB_sensor/SmarHousePage1.png)
+![ Muntu #01 ](https://github.com/LINOSNCHENA/Python-and-Arduino/blob/master/ProjectB_sensor/SmarHouseData.gif)
 
 # END
