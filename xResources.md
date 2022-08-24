@@ -29,6 +29,7 @@ https://github.com/protostax/ProtoStax_Arduino_Nano_BLE_RGBLED_Service
 https://pythonforundergradengineers.com/python-arduino-LED.
 
 ## Project -Detection
+==================================================================================
 1. https://neuton.ai/
 2. https://eloquentarduino.github.io/2019/11/you-can-run-machine-learning-on-arduino/
 3. https://github.com/hollance/TinyML-HelloWorld-ArduinoUno

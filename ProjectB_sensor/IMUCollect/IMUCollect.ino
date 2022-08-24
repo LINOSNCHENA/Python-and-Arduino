@@ -41,5 +41,5 @@ void loop() {
   Serial.print(",");
   Serial.print(gz);//6
   Serial.print("\n");
-  // delay(2000); // Two Seconds
+  delay(1000); // Two Seconds
 }

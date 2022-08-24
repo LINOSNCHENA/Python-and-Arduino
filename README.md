@@ -24,6 +24,9 @@ bash model.sh
 B | ================
 python SensorBData.py
 python SensorView.py
+python cleanX.py
+
+D | ================
 python ThreeC1.py
 
 D | ================
