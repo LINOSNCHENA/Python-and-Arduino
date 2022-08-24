@@ -6,6 +6,7 @@ import serial
 plt.rcParams["figure.figsize"] = (12, 8)
 plt.rcParams["figure.autolayout"] = True
 import pandas as pd
+import os, os.path
 
 print("====================|Successfully_Readig_Arduino_Data|==================0=======")
 
@@ -38,7 +39,7 @@ line4, = plt.plot_date(x_data1, y4, 'm-')
 line5, = plt.plot_date(x_data1, y5, 'y-')
 line6, = plt.plot_date(x_data1, y6, 'k-')
 counter=0
-
+os.system('cleanX.py')
 def update2(frame):
     s = sensoredData.readline().decode()
     rows = [float(x) for x in s.split(',')]
@@ -108,6 +109,9 @@ plt.ylim([-2.2, 2.2])
 plt.tight_layout()
 plt.show()
 plt.savefig('SmartHousePage1.png')
+
+
+os.system('cleanX.py')
 
 from matplotlib.animation import PillowWriter
 animation.save("SmartHouseData.gif", dpi=300, writer=PillowWriter(fps=1))
