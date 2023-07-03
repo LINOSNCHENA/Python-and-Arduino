@@ -47,7 +47,7 @@ void loop() {
     for (int i = 0; i < 75; i++) {
       Serial.print(String(x[i]) + ",");
       Serial.print(String(y[i]) + ",");
-      Serial.print(String(z[i]) + ",");
+      Serial.println(String(z[i]) + ",");
     }
     arrayIndex = 0;
     dataFull = false;

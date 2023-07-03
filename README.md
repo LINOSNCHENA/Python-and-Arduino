@@ -38,6 +38,14 @@ python sendCentral.py
 python buttonOnOff.py
 python sendExit.py
 
+
+G. Reader
+
+python Zambia0.py
+python Zambia1.py
+
+
+
 ```
 ===================================================================
 
