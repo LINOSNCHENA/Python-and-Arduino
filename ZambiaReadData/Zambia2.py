@@ -38,24 +38,25 @@ while True:
 
 # the result is a JSON string:
     print(y)
-    data = supabase.table("countries").select("*").execute()
+    data = supabase.table("audz").select("*").execute()
 # Assert we pulled real data.
     assert len(data.data) > 0
     print("=============================3====")
     print(data)
 
-    data = supabase.table("countries").insert({"name":s}).execute()
-    assert len(data.data) > 0
-    print(data)
+
     print("==============================4===")
     if s != "":
         # rows = [float(x[0]) for x in s.split(',')]
         x = s[0:4]
         y = s[5:10]
-        z = s[11:18]
+        z = s[11:14]
         print('First 4 character : ', x)
         print('First 4 character : ', y)
         print('First 4 character : ', z)
+    data = supabase.table("audz").insert({"namex":x,"namey":y,"namez":z}).execute()
+    assert len(data.data) > 0
+    print(data)
     #     # Insert local time to list's first position
     #     rows.insert(0, int(time()))
     #     print(rows)

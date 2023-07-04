@@ -44,7 +44,20 @@ G. Reader
 python Zambia0.py
 python Zambia1.py
 
+pip install supabase
+conda install -c conda-forge python-dotenv
+!pip install python-dotenv
 
+
+# Routes
+
+http://localhost:5000/get_chain
+http://localhost:5000/mine_block
+
+
+## Source
+
+https://www.section.io/engineering-education/how-to-create-a-blockchain-in-python/
 
 ```
 ===================================================================

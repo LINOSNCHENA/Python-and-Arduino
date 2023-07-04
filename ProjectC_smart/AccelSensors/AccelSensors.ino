@@ -51,6 +51,7 @@ void loop() {
     }
     arrayIndex = 0;
     dataFull = false;
+     delay(12020);
     Serial.println("");
   }
 }
