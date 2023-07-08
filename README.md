@@ -53,6 +53,7 @@ conda install -c conda-forge python-dotenv
 
 http://localhost:5000/get_chain
 http://localhost:5000/mine_block
+http://localhost:5000/stream
 
 
 ## Source
